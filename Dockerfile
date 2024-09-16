@@ -19,17 +19,14 @@ RUN apt update && apt install -y \
     unzip \
     wget
 
-# Clone Firefox source
-RUN hg clone https://hg.mozilla.org/mozilla-central/ /root/mozilla-unified/
-
-# Set up working directory
-WORKDIR /mercury
 
 # Clone Mercury source
-RUN git clone https://github.com/Alex313031/Mercury.git /mercury
+RUN git clone https://github.com/D3fau4/Mercury.git /mercury
 
 # Navigate to the Mercury folder
 WORKDIR /mercury
+
+ENV HG_SRC_DIR = /mercury/mozilla-unified
 
 # Set up the Mozilla and Mercury sources
 RUN ./bootstrap.sh --$PLATFORM && ./setup.sh

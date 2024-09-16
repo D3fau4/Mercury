@@ -29,7 +29,7 @@ makeWinDir () {
 	printf "\n" &&
 	tput sgr0 &&
 	curl https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py -O &&
-	python3 bootstrap.py
+	python3 bootstrap.py --no-interactive
 }
 case $1 in
 	--win) makeWinDir; exit 0;;
@@ -42,7 +42,7 @@ makeLinuxDir () {
 	printf "\n" &&
 	tput sgr0 &&
 	curl https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py -O &&
-	python3 bootstrap.py
+	python3 bootstrap.py --no-interactive
 }
 case $1 in
 	--linux) makeLinuxDir; exit 0;;
@@ -55,7 +55,7 @@ makeMacDir () {
 	printf "\n" &&
 	tput sgr0 &&
 	curl https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py -O &&
-	python3 bootstrap.py
+	python3 bootstrap.py --no-interactive
 }
 case $1 in
 	--mac) makeMacDir; exit 0;;
