@@ -1,6 +1,9 @@
 # Base image with Ubuntu
 FROM debian:12-slim
 
+# Set default platform
+ARG PLATFORM=linux
+
 # Install dependencies
 RUN apt update && apt install -y \
     python3 \
@@ -29,7 +32,7 @@ RUN git clone https://github.com/Alex313031/Mercury.git /mercury
 WORKDIR /mercury
 
 # Set up the Mozilla and Mercury sources
-RUN ./bootstrap.sh --linux && ./setup.sh
+RUN ./bootstrap.sh --$PLATFORM && ./setup.sh
 
 # Build Mercury
 CMD ["./build.sh"]
